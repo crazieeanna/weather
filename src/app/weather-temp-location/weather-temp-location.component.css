@@ -1,0 +1,41 @@
+.weather-background {
+    position: relative;
+    overflow: hidden;
+    width: 108%;
+    height: 50%;
+    margin-left: -15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.weather-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.weather-background-data {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #0000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.location {
+    color: #ffff;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.temperature {
+    color: #ffff;
+    font-size: 4em;
+    text-align: center;
+}
