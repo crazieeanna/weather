@@ -1,4 +1,4 @@
-<div class="weather-info-container">
+<div class="weather-info-container" *ngIf="weatherInfoData">
     <div class="weather-info">
 
         <div class="min-temp-info">
@@ -7,17 +7,17 @@
                 <span class="min-temp-text">Min</span>
             </div>
             <div class="min-temp-value">
-                10 °C
+                {{ weatherInfoData.main.temp_min | number: '1.0-0' }} °C
             </div>
         </div>
     
         <div class="max-temp-info">
             <div class="max-temp-label">
                 <img class="max-temp-img" src="../../assets/max-temp.png" alt="max-temp">
-                <span class="max-temp-text">Min</span>
+                <span class="max-temp-text">Max</span>
             </div>
             <div class="max-temp-value">
-                40 °C
+                {{ weatherInfoData.main.temp_max | number: '1.0-0' }} °C
             </div>
         </div>
     
@@ -27,7 +27,7 @@
                 <span class="humidity-text">Humidity</span>
             </div>
             <div class="humidity-value">
-                77 %
+                {{ weatherInfoData.main.humidity | number: '1.0-0' }} %
             </div>
         </div>
     
@@ -37,7 +37,7 @@
                 <span class="wind-text">Wind</span>
             </div>
             <div class="wind-value">
-                12 km/hr
+                {{ weatherInfoData.wind.speed | number: '1.0-0' }} km/hr
             </div>
         </div>
     
@@ -47,7 +47,7 @@
                 <span class="exp-temp-text">Feels</span>
             </div>
             <div class="exp-temp-value">
-                32 °C
+                {{ weatherInfoData.main.feels_like | number: '1.0-0' }} °C
             </div>
         </div>
     
@@ -57,7 +57,8 @@
                 <span class="air-quality-text">Air</span>
             </div>
             <div class="air-quality-value">
-                255
+                {{ weatherInfoData.main.pressure }}
+                <!-- {{ airQualityInfoData.timezone}} -->
             </div>
         </div>
 

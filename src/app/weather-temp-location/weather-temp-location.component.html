@@ -1,10 +1,10 @@
-<div class="weather-background">
+<div class="weather-background" *ngIf="weatherData">
     <div class="weather-background-image">
-        <img src="../../assets/hot.jpg" alt="hot-weather" *ngIf="14 < 15">
-        <img src="../../assets/cold.jpg" alt="cold-weather" *ngIf="14 > 15">
+        <img src="../../assets/hot.jpg" alt="hot-weather" *ngIf="weatherData.main.temp >= 15">
+        <img src="../../assets/cold.jpg" alt="cold-weather" *ngIf="weatherData.main.temp < 15">
     </div>
     <div class="weather-background-data">
-        <div class="location">Mumbai</div>
-        <div class="temperature">{{ 40.40 | number: '1.0-0' }}°C</div>
+        <div class="location">{{ weatherData.name }}</div>
+        <div class="temperature">{{ weatherData.main.temp | number: '1.0-0' }}°C</div>
     </div>
 </div>
