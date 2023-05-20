@@ -11,25 +11,35 @@ import { AirQualityModel } from '../shared/air-quality.model';
 export class WeatherInformationComponent implements OnInit {
 
   weatherInfoData!: WeatherModel;
+  cityLocation: string = 'Mumbai';
   airQualityInfoData!: AirQualityModel;
 
   constructor(private weatherService: WeatherService, private airQualityService: WeatherService) {}
 
-  ngOnInit() {
-    this.weatherService.getWeatherData('Copenhagen').subscribe(
+  ngOnInit() {  
+    this.getWeatherData(this.cityLocation);
+    this.cityLocation = '';
+  }
+
+  private getWeatherData(location: string) {
+    this.weatherService.getWeatherData(this.cityLocation).subscribe(
       weatherInfoResponse => {
         this.weatherInfoData = weatherInfoResponse;
         console.log(weatherInfoResponse);
       }
     );
 
-    this.airQualityService.getAirQualityData('Copenhagen').subscribe(
+    this.airQualityService.getAirQualityData(this.cityLocation).subscribe(
       airQualityInfoResponse => {
         this.airQualityInfoData = airQualityInfoResponse;
         console.log(this.airQualityInfoData);
       }
     );
-    
+  }
+
+  onSubmit() {
+    this.getWeatherData(this.cityLocation);
+    this.cityLocation = '';
   }
 
 }

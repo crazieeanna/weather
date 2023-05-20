@@ -10,16 +10,28 @@ import { WeatherModel } from '../shared/weather.model';
 export class WeatherTempLocationComponent implements OnInit {
 
   weatherData!: WeatherModel;
+  cityLocation: string = 'Mumbai';
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.weatherService.getWeatherData('Copenhagen').subscribe(
+    this.getWeatherTempDatabyLocation(this.cityLocation);
+    this.cityLocation = '';
+  }
+
+  private getWeatherTempDatabyLocation(locationName: string) {
+    this.weatherService.getWeatherData(locationName).subscribe(
       weatherDataResponse => {
         this.weatherData = weatherDataResponse;
         console.log(weatherDataResponse);
       }
     );
   }
+
+  onSubmit() {
+    this.getWeatherTempDatabyLocation(this.cityLocation);
+    this.cityLocation = '';
+  }
+
 
 }

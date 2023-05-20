@@ -39,3 +39,74 @@
     font-size: 4em;
     text-align: center;
 }
+
+.search-box {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.input {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 1em;
+    color: #EDEDED;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.weather-info-container {
+    position: relative;
+    overflow: hidden;
+    width: 108%;
+    height: 50%;
+    margin-left: -15px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-info {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.min-temp-info, .max-temp-info, .humidity-info, .wind-info, .exp-temp-info, .air-quality-info {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.min-temp-label, .max-temp-label, .humidity-label, .wind-label, .exp-temp-label, .air-quality-label {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.min-temp-img, .max-temp-img, .humidity-img, .wind-img, .exp-temp-img, .air-quality-img {
+    width: 2em;
+}
+
+.min-temp-text, .max-temp-text, .humidity-text, .wind-text, .exp-temp-text, .air-quality-text {
+    color: #ffff;
+    font-size: 0.8em;
+}
+
+.min-temp-value, .max-temp-value, .humidity-value, .wind-value, .exp-temp-value, .air-quality-value {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffff;
+    position: relative;
+    right: 20px;
+}

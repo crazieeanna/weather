@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WeatherTempLocationComponent } from './weather-temp-location/weather-temp-location.component';
 import { WeatherInformationComponent } from './weather-information/weather-information.component';
 import { WeatherService } from './shared/weather.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { WeatherService } from './shared/weather.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

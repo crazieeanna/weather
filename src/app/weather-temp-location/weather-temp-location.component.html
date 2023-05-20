@@ -4,7 +4,78 @@
         <img src="../../assets/cold.jpg" alt="cold-weather" *ngIf="weatherData.main.temp < 15">
     </div>
     <div class="weather-background-data">
+        <div class="search-box">
+            <form (ngSubmit)="onSubmit()" #weatherForm="ngForm">
+                <input class="input" class="input" type="text" name="cityLocation" [(ngModel)]="cityLocation">
+            </form>
+        </div>
         <div class="location">{{ weatherData.name }}</div>
         <div class="temperature">{{ weatherData.main.temp | number: '1.0-0' }}°C</div>
+    </div>
+</div>
+
+<div class="weather-info-container" *ngIf="weatherData">
+    <div class="weather-info">
+
+        <div class="min-temp-info">
+            <div class="min-temp-label">
+                <img class="min-temp-img" src="../../assets/min-temp.png" alt="min-temp">
+                <span class="min-temp-text">Min</span>
+            </div>
+            <div class="min-temp-value">
+                {{ weatherData.main.temp_min | number: '1.0-0' }} °C
+            </div>
+        </div>
+    
+        <div class="max-temp-info">
+            <div class="max-temp-label">
+                <img class="max-temp-img" src="../../assets/max-temp.png" alt="max-temp">
+                <span class="max-temp-text">Max</span>
+            </div>
+            <div class="max-temp-value">
+                {{ weatherData.main.temp_max | number: '1.0-0' }} °C
+            </div>
+        </div>
+    
+        <div class="humidity-info">
+            <div class="humidity-label">
+                <img class="humidity-img" src="../../assets/humidity.png" alt="humidity">
+                <span class="humidity-text">Humidity</span>
+            </div>
+            <div class="humidity-value">
+                {{ weatherData.main.humidity | number: '1.0-0' }} %
+            </div>
+        </div>
+    
+        <div class="wind-info">
+            <div class="wind-label">
+                <img class="wind-img" src="../../assets/wind.png" alt="wind">
+                <span class="wind-text">Wind</span>
+            </div>
+            <div class="wind-value">
+                {{ weatherData.wind.speed | number: '1.0-0' }} km/hr
+            </div>
+        </div>
+    
+        <div class="exp-temp-info">
+            <div class="exp-temp-label">
+                <img class="exp-temp-img" src="../../assets/temp-expected.png" alt="exp-temp">
+                <span class="exp-temp-text">Feels</span>
+            </div>
+            <div class="exp-temp-value">
+                {{ weatherData.main.feels_like | number: '1.0-0' }} °C
+            </div>
+        </div>
+    
+        <div class="air-quality-info">
+            <div class="air-quality-label">
+                <img class="air-quality-img" src="../../assets/air quality.png" alt="air-quality">
+                <span class="air-quality-text">Air</span>
+            </div>
+            <div class="air-quality-value">
+                {{ weatherData.main.pressure }}
+            </div>
+        </div>
+
     </div>
 </div>
